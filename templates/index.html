@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ASK Developers | Premium Land & Real Estate Services</title>
+
+    <link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+   <link rel="preload" as="image" href="https://images.unsplash.com/photo-1581090700227-4c4b6e7e9d4b?q=80&w=1920" fetchpriority="high">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1920">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1920">
+</head>
+
+<body>
+
+    <header class="navbar">
+
+    <div class="logo">
+        <img src="{{ url_for('static', filename='img/logo.png') }}">
+    </div>
+
+    <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <nav id="navMenu">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#clients">Our Clients</a>
+         <a href="#contact">Contact</a>
+        
+    </nav>
+    
+    <a href="#contact" class="btn desktop-btn">Get in Touch</a>
+
+</header>
+
+   <section class="hero" id="home">
+
+
+    <div class="hero-slider">
+
+    <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1581090700227-4c4b6e7e9d4b?q=80&w=1920')"></div>
+
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1920')"></div>
+
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1920')"></div>
+
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1920')"></div>
+
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1496307653780-42ee777d4833?q=80&w=1920')"></div>
+
+    <!-- NEW IMAGES -->
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1920')"></div>
+
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1565610222536-ef125c59da2e?q=80&w=1920')"></div>
+
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1920')"></div>
+
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1581093588401-22c7c7f6b4b3?q=80&w=1920')"></div>
+
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1920')"></div>
+
+</div>
+    <!-- PREMIUM OVERLAY -->
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <!-- LEFT -->
+        <div class="hero-left">
+
+            
+
+            <h1>
+                <span id="typing"></span>
+                <span class="cursor">|</span>
+            </h1>
+
+            <p class="hero-desc">
+                Premium industrial land, construction projects, and factory development solutions tailored for modern investors.
+            </p>
+
+            <div class="hero-btns">
+                <a href="#contact" class="btn">Get Consultation</a>
+                <!--<a href="tel:7602982570" class="btn-outline">Call Now</a>-->
+                <a href="https://ashis-ghosh-portfulio.netlify.app/" class="btn">
+   View Portfolio 🚀
+</a>
+            </div>
+
+            <div class="hero-stats">
+                <div><h3>15+</h3><p>Years Experience</p></div>
+                <div><h3>100+</h3><p>Happy Clients</p></div>
+                <div><h3>20+</h3><p>Major Projects</p></div>
+            </div>
+
+        </div>
+
+       
+
+ 
+
+</section>
+
+    <!-- ABOUT -->
+    <!-- ABOUT -->
+<section id="about">
+
+    <h2 class="title">About Us</h2>
+
+    <div class="about-box">
+
+        <!-- LEFT IMAGE -->
+        <lottie-player 
+    src="https://assets2.lottiefiles.com/packages/lf20_qp1q7mct.json"
+    background="transparent"
+    speed="1"
+    style="width:350px;"
+    loop autoplay>
+</lottie-player>
+
+        <!-- RIGHT CONTENT -->
+        <div class="about-card">
+
+            <div class="about-text">
+                <p>
+                    We are <b>ASK Developers</b>, a professional real estate and transport service provider engaged
+                    in industrial logistics and large-scale land deals. We ensure smooth, transparent,
+                    and profitable transactions for buyers, sellers, and investors.
+                </p>
+            </div>
+
+            <!-- SLIDER -->
+            <div class="about-slider">
+                <div class="slider-track">
+
+                    <div class="slide">
+                        <h3>🚚 Transport Business</h3>
+                        <p>Safe, timely and efficient logistics services for industrial needs.</p>
+                    </div>
+
+                    <div class="slide">
+                        <h3>🏭 Industrial Projects</h3>
+                        <p>Factory setup, warehouses, and large-scale industrial land development.</p>
+                    </div>
+
+                    <div class="slide">
+                        <h3>🔐 Trusted Deals</h3>
+                        <p>Verified land, legal clarity, and long-term trusted relationships.</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- OFFICE -->
+    <section class="section dark" id="office">
+        <h2 class="title">Our Office</h2>
+
+        <div class="office-container">
+
+            <div class="office-image">
+                <img src="{{ url_for('static', filename='img/our_office_photo.png') }}">
+            </div>
+
+            <div class="office-content">
+                <h3>Office & Client Meetings</h3>
+
+                <p>
+                    A professional workspace dedicated to land deals, property transactions, and client meetings across
+                    West Bengal.
+                </p>
+
+                <div class="office-stats">
+                    <div class="office-card">
+                        <h4>📍 Location</h4>
+                        <p>Gurap, Hooghly</p>
+                    </div>
+
+                    <div class="office-card">
+                        <h4>🤝 Meetings</h4>
+                        <p>Clients & Investors</p>
+                    </div>
+
+                    <div class="office-card">
+                        <h4>📄 Work</h4>
+                        <p>Land & Transport Deals</p>
+                    </div>
+                </div>
+
+                <div class="office-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14686.123456!2d88.11108!3d23.0285437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f85faf762dd2af%3A0xd6954c01a683bcb8!2sGurap%2C%20West%20Bengal%20712303!5e0!3m2!1sen!2sin!4v0000000000"
+                        width="100%" height="250" style="border:0; border-radius:15px;" loading="lazy">
+                    </iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+     <!-- SERVICES -->
+<section class="section dark" id="services">
+
+    <h2 class="title">Services</h2>
+
+    <div class="grid">   <!-- ✅ THIS WAS MISSING -->
+
+        <div class="card">
+            <i class="fas fa-map"></i>
+            <h3>Land Buying</h3>
+            <p>Verified land investment opportunities</p>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-home"></i>
+            <h3>Land Selling</h3>
+            <p>Best market value deals for sellers</p>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-scale-balanced"></i>
+            <h3>Legal Guidance</h3>
+            <p>Documentation & verification support</p>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-handshake"></i>
+            <h3>Brokerage</h3>
+            <p>Safe buyer-seller connection</p>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-building"></i>
+            <h3>Construction</h3>
+            <p>Complete building & development solutions</p>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-exchange-alt"></i>
+            <h3>Land Conversion</h3>
+            <p>Agricultural to residential/commercial conversion</p>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-cube"></i>
+            <h3>3D Drawing</h3>
+            <p>Modern 3D design & layout planning</p>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-file-signature"></i>
+            <h3>Mutation</h3>
+            <p>Property ownership transfer services</p>
+        </div>
+
+    </div>
+</section>
+<section id="projects">
+
+    <h2 class="title">Our Projects</h2>
+
+    <!-- FILTER -->
+    <div class="project-filters">
+        <button class="active" data-filter="all">All</button>
+        <button data-filter="completed">Completed</button>
+        <button data-filter="under">Under Construction</button>
+    </div>
+
+    <!-- GRID -->
+    <div class="projects-grid">
+
+        {% for project in projects %}
+
+        <div class="project-card {{ project.category }}"
+             data-title="{{ project.company_name }}"
+             data-desc="{{ project.description }}"
+             data-img="{{ url_for('static', filename='uploads/' + project.image) }}"
+             data-status="{{ project.category }}">
+
+            <img src="{{ url_for('static', filename='uploads/' + project.image) }}">
+
+            <span class="status {{ project.category }}">
+
+                {% if project.category == 'completed' %}
+                    Completed
+                {% else %}
+                    Under Construction
+                {% endif %}
+
+            </span>
+
+            <div class="project-overlay">
+
+                <h3>{{ project.company_name }}</h3>
+
+                <p>{{ project.project_type }}</p>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+<!-- MODAL -->
+<div id="projectModal" class="project-modal">
+
+    <div class="modal-content">
+
+        <span class="close-modal">&times;</span>
+
+        <img id="modalImg">
+
+        <div class="modal-info">
+
+            <h2 id="modalTitle"></h2>
+
+            <p id="modalDesc"></p>
+
+            <span id="modalStatus" class="modal-status"></span>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ================= CLIENTS ================= -->
+<section class="section dark" id="clients">
+
+    <h2 class="title">Our Trusted Partners</h2>
+
+    <div class="logo-slider">
+        <div class="logo-track">
+
+            <!-- ORIGINAL LOGOS -->
+            <img src="https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/uploadedManual-65f1569127576_screenshot_2024-03-13_at_1.02.11_pm.png?d=200x200">
+            <img src="https://i.ytimg.com/vi/6iGJxyAs4oU/maxresdefault.jpg">
+            <img src="https://content.jdmagicbox.com/comp/dankuni/m1/9999pxx33.xx33.180910130741.f9m1/catalogue/sastasundar-healthbuddy-new-upasaam-dankuni-dankuni-chemists-xo5sp87ltx.jpg">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRegQC6y55q0QCtmOdfuTH2ztkghCRTSgZsLA&s">
+            <img src="https://jutefabs.com/wp-content/uploads/2024/02/banner.jpg">
+            <img src="https://fileserver.enrichmoney.in/Content/Stock/Logo/LUXIND.png">
+            <img src="https://jainlaminates.com/wp-content/uploads/2020/03/woodstock.png">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLIkxuCvzH_hIw2jGZeUQ5ClkIGsB9B5Uhqw&s">
+            <img src="https://5.imimg.com/data5/SELLER/Default/2024/6/424796977/US/FO/HX/24939457/jj-1000x1000.jpg">
+            <img src="https://media.licdn.com/dms/image/v2/D4D0BAQEv6ZrmKXq01Q/company-logo_200_200/company-logo_200_200/0/1732536889456?e=2147483647&v=beta&t=kP7KZXSJhW_yAg7jK4LfQ2k3dCRlWqddy7uFA024to8">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwZkqEYPQhTJ4kiGVkjXOTYAvDNSefkIYfZw&s">
+            <img src="https://images.jdmagicbox.com/comp/kolkata/d1/033pxx33.xx33.171225131830.p6d1/catalogue/utkarsh-india-ltd-park-street-kolkata-electric-pvc-pipe-manufacturers-91128m7oum.jpg">
+            <img src="https://exhibition.skoch.in/wp-content/uploads/2024/11/Adani-wilmar-logo-1-1024x1024.jpg">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRgwox7OLcIDEh83t99RXKbXTLvnAPtAOwPw&s">
+            <img src="https://www.himadri.com/home/uploads/newss/1777532956_1744095097_1715858676_latest_5.png">
+            <img src="https://media.licdn.com/dms/image/v2/D4E0BAQE4RJQh2epPow/company-logo_200_200/company-logo_200_200/0/1733138257591?e=2147483647&v=beta&t=bS8lhmwsVkDno-mKmujbXHJDrNAiaiHTd2tRv75Bizw">
+            <img src="https://static.credencedata.com/images/assets/logo_new.webp">
+            <img src="https://img.staticmb.com/mbimages/photo_dir/developer/original_images/54626/Shweta-Developers-1386417830370-Company-Logo.jpg">
+            <img src="https://media.licdn.com/dms/image/v2/C510BAQEqKlg-99HPFA/company-logo_200_200/company-logo_200_200/0/1631364494983?e=2147483647&v=beta&t=KjVz4sizkoIgUNvrvt1218Vd93rA1ocf35zFBeHU1Xs">
+            <img src="https://www.filesure.in/assets/opengraph-image.png">
+            <img src="https://fortischemicals.com/assets/images/logo/new_logo.png">
+            <img src="https://shwetaconstruction.com/wp-content/uploads/2026/01/logo-BG.png">
+
+            <!-- DUPLICATE FOR INFINITE SCROLL -->
+            <!-- copy same logos again -->
+            <!-- (IMPORTANT for smooth loop) -->
+
+        </div>
+    </div>
+
+</section>
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+        <h2 class="title">Get in Touch</h2>
+
+        <div class="contact-wrapper">
+
+            <div>
+                <p>ASK Developers | West Bengal</p>
+                <p>📞 +91 7602982570</p>
+                <p>📧 askdeveloprs87@gamil.com</p>
+            </div>
+
+            <form>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message"></textarea>
+                <button type="submit">Send</button>
+            </form>
+
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+    <div class="footer-content">
+
+        <!-- BRAND -->
+        <div class="footer-box">
+            <h3>ASK Developers</h3>
+            <p>Premium Real Estate & Transport Services across West Bengal.</p>
+
+            <!-- SOCIAL -->
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div class="footer-box">
+            <h4>Quick Links</h4>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="footer-box">
+            <h4>Contact</h4>
+            <p>📍 Kolkata, India</p>
+            <p>📞 +91 7602982570</p>
+            <p>📧 askdevelopers87@gmail.com</p>
+        </div>
+
+    </div>
+
+
+    <!-- BOTTOM -->
+    <div class="footer-bottom">
+        <p>© 2026 All Rights Reserved | Site Developed by Webzyno</p>
+    </div>
+
+    <!-- BACK TO TOP -->
+    <div class="back-to-top" id="topBtn">
+        ↑
+    </div>
+
+</footer>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script>
+  const track = document.querySelector('.logo-track');
+  track.innerHTML += track.innerHTML;  // duplicates automatically
+</script>
+
+
+
+</body>
+
+</html>

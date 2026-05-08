@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Panel</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/admin.css') }}">
+
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="admin-header">
+
+        <h1>Ask <span>Developers</span> Admin</h1>
+
+        <a href="/logout" class="logout-btn">
+            Logout
+        </a>
+
+    </div>
+
+    <!-- FORM -->
+    <div class="admin-container">
+
+        <form class="admin-form"
+        action="/add-project"
+        method="POST"
+        enctype="multipart/form-data">
+
+            <input type="text"
+            name="company_name"
+            placeholder="Company Name"
+            required>
+
+            <input type="text"
+            name="project_type"
+            placeholder="Project Type"
+            required>
+
+            <textarea
+            name="description"
+            placeholder="Project Description"
+            required></textarea>
+
+            <input type="file"
+            name="image"
+            required>
+
+            <select name="category" required>
+                <option value="completed">
+                    Completed
+                </option>
+
+                <option value="under">
+                    Under Construction
+                </option>
+            </select>
+
+            <button type="submit">
+                Upload Project
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- PROJECT TABLE -->
+    <div class="project-table-container">
+
+        <h2>Uploaded Projects</h2>
+
+        <table>
+
+            <tr>
+                <th>ID</th>
+                <th>Image</th>
+                <th>Company</th>
+                <th>Type</th>
+                <th>Category</th>
+                <th>Actions</th>
+            </tr>
+
+            {% for project in projects %}
+
+            <tr>
+
+                <td>{{ project.id }}</td>
+
+                <td>
+                    <img
+                    src="{{ url_for('static',
+                    filename='uploads/' + project.image) }}"
+                    width="80">
+                </td>
+
+                <td>{{ project.company_name }}</td>
+
+                <td>{{ project.project_type }}</td>
+
+                <td>{{ project.category }}</td>
+
+                <td>
+
+                    <a href="/delete-project/{{ project.id }}"
+                    class="delete-btn">
+                        Delete
+                    </a>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+</body>
+</html>
