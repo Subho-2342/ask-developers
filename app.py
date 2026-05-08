@@ -23,10 +23,11 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 # ===============================
 
 db = mysql.connector.connect(
-    host="localhost",
+    host="maglev.proxy.rlwy.net",
     user="root",
-    password="",
-    database="ask_developers"
+    password="DFNWRuxpLJbOsRlZGHTcEWSTvoMsamvx",
+    database="railway",
+    port=55159
 )
 
 cursor = db.cursor(dictionary=True)
