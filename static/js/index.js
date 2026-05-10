@@ -235,9 +235,11 @@ topBtn.onclick = () => {
 
     emailjs.init("whDjuYbo3KR389Eso");
 
-    document
-        .getElementById("contact-form")
-        .addEventListener("submit", function(event) {
+    const contactForm = document.getElementById("contact-form");
+
+    if(contactForm){
+
+        contactForm.addEventListener("submit", function(event){
 
             event.preventDefault();
 
@@ -247,17 +249,15 @@ topBtn.onclick = () => {
                 this
             )
 
-            .then(function() {
+            .then(() => {
 
                 alert("Message Sent Successfully!");
 
-                document
-                    .getElementById("contact-form")
-                    .reset();
+                contactForm.reset();
 
             })
 
-            .catch(function(error) {
+            .catch((error) => {
 
                 alert("Failed To Send Message");
 
@@ -266,5 +266,7 @@ topBtn.onclick = () => {
             });
 
         });
+
+    }
 
 });
