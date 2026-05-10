@@ -252,7 +252,6 @@ topBtn.onclick = () => {
             .then(() => {
 
                 alert("Message Sent Successfully!");
-
                 contactForm.reset();
 
             })
@@ -260,7 +259,6 @@ topBtn.onclick = () => {
             .catch((error) => {
 
                 alert("Failed To Send Message");
-
                 console.log(error);
 
             });
