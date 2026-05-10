@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, session
 import mysql.connector
-import os
+import cloudinary
+import cloudinary.uploader
 
 app = Flask(__name__)
 
@@ -8,15 +9,14 @@ app = Flask(__name__)
 app.secret_key = "askdeveloperssecret"
 
 # ===============================
-# UPLOAD FOLDER
+# CLOUDINARY CONFIG
 # ===============================
 
-UPLOAD_FOLDER = 'static/uploads'
-
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
-# AUTO CREATE uploads FOLDER
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+cloudinary.config(
+    cloud_name="dxmrryscc",
+    api_key="645264287494442",
+    api_secret="QCKA85NtFbSRUVrXZIfHU6qvoS0"
+)
 
 # ===============================
 # MYSQL CONNECTION
@@ -65,9 +65,6 @@ def login():
     username = request.form.get("username")
     password = request.form.get("password")
 
-    print(username)
-    print(password)
-
     sql = """
     SELECT * FROM admin
     WHERE username=%s AND password=%s
@@ -78,8 +75,6 @@ def login():
     cursor.execute(sql, values)
 
     admin = cursor.fetchone()
-
-    print(admin)
 
     if admin:
 
@@ -124,19 +119,14 @@ def add_project():
 
     image = request.files.get("image")
 
-    filename = ""
+    image_url = ""
 
-    # SAVE IMAGE
+    # UPLOAD IMAGE TO CLOUDINARY
     if image and image.filename != "":
 
-        filename = image.filename
+        upload_result = cloudinary.uploader.upload(image)
 
-        image_path = os.path.join(
-            app.config['UPLOAD_FOLDER'],
-            filename
-        )
-
-        image.save(image_path)
+        image_url = upload_result["secure_url"]
 
     # INSERT INTO DATABASE
     sql = """
@@ -150,7 +140,7 @@ def add_project():
         company_name,
         project_type,
         description,
-        filename,
+        image_url,
         category
     )
 
@@ -168,25 +158,6 @@ def delete_project(id):
 
     if "admin" not in session:
         return redirect("/admin-login")
-
-    # GET IMAGE NAME
-    cursor.execute(
-        "SELECT image FROM projects WHERE id=%s",
-        (id,)
-    )
-
-    project = cursor.fetchone()
-
-    # DELETE IMAGE FILE
-    if project:
-
-        image_path = os.path.join(
-            app.config['UPLOAD_FOLDER'],
-            project["image"]
-        )
-
-        if os.path.exists(image_path):
-            os.remove(image_path)
 
     # DELETE DB DATA
     cursor.execute(

@@ -230,3 +230,37 @@ window.addEventListener("scroll", () => {
 topBtn.onclick = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 };
+
+ emailjs.init("whDjuYbo3KR389Eso");
+
+    document
+        .getElementById("contact-form")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            emailjs.sendForm(
+                "service_p57ze38",
+                "template_17y7myk",
+                this
+            )
+
+            .then(function() {
+
+                alert("Message Sent Successfully!");
+
+                document
+                    .getElementById("contact-form")
+                    .reset();
+
+            })
+
+            .catch(function(error) {
+
+                alert("Failed To Send Message");
+
+                console.log(error);
+
+            });
+
+        });
