@@ -231,11 +231,13 @@ topBtn.onclick = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
- document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
     emailjs.init("whDjuYbo3KR389Eso");
 
     const contactForm = document.getElementById("contact-form");
+
+    console.log(contactForm);
 
     if(contactForm){
 
@@ -252,6 +254,7 @@ topBtn.onclick = () => {
             .then(() => {
 
                 alert("Message Sent Successfully!");
+
                 contactForm.reset();
 
             })
@@ -259,6 +262,7 @@ topBtn.onclick = () => {
             .catch((error) => {
 
                 alert("Failed To Send Message");
+
                 console.log(error);
 
             });
