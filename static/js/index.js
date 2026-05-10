@@ -231,7 +231,9 @@ topBtn.onclick = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
- emailjs.init("whDjuYbo3KR389Eso");
+ document.addEventListener("DOMContentLoaded", () => {
+
+    emailjs.init("whDjuYbo3KR389Eso");
 
     document
         .getElementById("contact-form")
@@ -264,3 +266,5 @@ topBtn.onclick = () => {
             });
 
         });
+
+});
