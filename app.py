@@ -23,11 +23,10 @@ cloudinary.config(
 # ===============================
 
 db = mysql.connector.connect(
-    host="maglev.proxy.rlwy.net",
-    user="root",
-    password="DFNWRuxpLJbOsRlZGHTcEWSTvoMsamvx",
-    database="railway",
-    port=55159
+    host="srv1951.hstgr.io",
+    user="u892008390_askdev_user",
+    password="Askdev@12345",
+    database="u892008390_askdev_db"
 )
 
 cursor = db.cursor(dictionary=True)
