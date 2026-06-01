@@ -57,17 +57,7 @@ def admin_login():
 # LOGIN CHECK
 # ===============================
 
-@app.route("/")
-def home():
-    db = get_db()
-    cursor = db.cursor(dictionary=True)
 
-    cursor.execute("SELECT * FROM projects")
-    projects = cursor.fetchall()
-
-    db.close()
-
-    return render_template("index.html", projects=projects)
 
 # ===============================
 # ADMIN PAGE
