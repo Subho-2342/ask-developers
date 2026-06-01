@@ -22,14 +22,13 @@ cloudinary.config(
 # MYSQL CONNECTION
 # ===============================
 
-db = mysql.connector.connect(
-    host="srv1951.hstgr.io",
-    user="u892008390_askdev_user",
-    password="Askdev@12345",
-    database="u892008390_askdev_db"
-)
-
-cursor = db.cursor(dictionary=True)
+def get_db():
+    return mysql.connector.connect(
+        host="srv1951.hstgr.io",
+        user="u892008390_askdev_user",
+        password="Askdev@12345",
+        database="u892008390_askdev_db"
+    )
 
 # ===============================
 # HOME PAGE
@@ -37,15 +36,15 @@ cursor = db.cursor(dictionary=True)
 
 @app.route("/")
 def home():
+    db = get_db()
+    cursor = db.cursor(dictionary=True)
 
     cursor.execute("SELECT * FROM projects")
     projects = cursor.fetchall()
 
-    return render_template(
-        "index.html",
-        projects=projects
-    )
+    db.close()
 
+    return render_template("index.html", projects=projects)
 # ===============================
 # ADMIN LOGIN PAGE
 # ===============================
@@ -58,49 +57,35 @@ def admin_login():
 # LOGIN CHECK
 # ===============================
 
-@app.route("/login", methods=["POST"])
-def login():
-
-    username = request.form.get("username")
-    password = request.form.get("password")
-
-    sql = """
-    SELECT * FROM admin
-    WHERE username=%s AND password=%s
-    """
-
-    values = (username, password)
-
-    cursor.execute(sql, values)
-
-    admin = cursor.fetchone()
-
-    if admin:
-
-        session["admin"] = username
-
-        return redirect("/admin")
-
-    return "Invalid Username or Password"
-
-# ===============================
-# ADMIN PAGE
-# ===============================
-
-@app.route("/admin")
-def admin():
-
-    if "admin" not in session:
-        return redirect("/admin-login")
+@app.route("/")
+def home():
+    db = get_db()
+    cursor = db.cursor(dictionary=True)
 
     cursor.execute("SELECT * FROM projects")
     projects = cursor.fetchall()
 
-    return render_template(
-        "admin.html",
-        projects=projects
-    )
+    db.close()
 
+    return render_template("index.html", projects=projects)
+
+# ===============================
+# ADMIN PAGE
+# ===============================
+@app.route("/admin")
+def admin():
+    if "admin" not in session:
+        return redirect("/admin-login")
+
+    db = get_db()
+    cursor = db.cursor(dictionary=True)
+
+    cursor.execute("SELECT * FROM projects")
+    projects = cursor.fetchall()
+
+    db.close()
+
+    return render_template("admin.html", projects=projects)
 # ===============================
 # ADD PROJECT
 # ===============================
@@ -111,6 +96,9 @@ def add_project():
     if "admin" not in session:
         return redirect("/admin-login")
 
+    db = get_db()
+    cursor = db.cursor(dictionary=True)
+
     company_name = request.form.get("company_name")
     project_type = request.form.get("project_type")
     description = request.form.get("description")
@@ -120,31 +108,26 @@ def add_project():
 
     image_url = ""
 
-    # UPLOAD IMAGE TO CLOUDINARY
     if image and image.filename != "":
-
         upload_result = cloudinary.uploader.upload(image)
-
         image_url = upload_result["secure_url"]
 
-    # INSERT INTO DATABASE
     sql = """
     INSERT INTO projects
     (company_name, project_type, description, image, category)
-
     VALUES (%s,%s,%s,%s,%s)
     """
 
-    values = (
+    cursor.execute(sql, (
         company_name,
         project_type,
         description,
         image_url,
         category
-    )
+    ))
 
-    cursor.execute(sql, values)
     db.commit()
+    db.close()
 
     return redirect("/")
 
@@ -158,16 +141,14 @@ def delete_project(id):
     if "admin" not in session:
         return redirect("/admin-login")
 
-    # DELETE DB DATA
-    cursor.execute(
-        "DELETE FROM projects WHERE id=%s",
-        (id,)
-    )
+    db = get_db()
+    cursor = db.cursor(dictionary=True)
 
+    cursor.execute("DELETE FROM projects WHERE id=%s", (id,))
     db.commit()
+    db.close()
 
     return redirect("/admin")
-
 # ===============================
 # LOGOUT
 # ===============================
