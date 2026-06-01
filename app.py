@@ -57,7 +57,29 @@ def admin_login():
 # LOGIN CHECK
 # ===============================
 
+@app.route("/login", methods=["POST"])
+def login():
+    db = get_db()
+    cursor = db.cursor(dictionary=True)
 
+    username = request.form.get("username")
+    password = request.form.get("password")
+
+    sql = """
+    SELECT * FROM admin
+    WHERE username=%s AND password=%s
+    """
+
+    cursor.execute(sql, (username, password))
+    admin = cursor.fetchone()
+
+    db.close()
+
+    if admin:
+        session["admin"] = username
+        return redirect("/admin")
+
+    return "Invalid Username or Password"
 
 # ===============================
 # ADMIN PAGE
